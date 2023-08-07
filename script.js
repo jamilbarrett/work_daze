@@ -9,14 +9,14 @@ $(function () {
 
 // Save button of user input and localstorage
   $('.saveBtn').on('click', function () {
-    const userInput = timeBlock.find('.description').val()
     const timeBlock = $(this).closest('.time-block')
     const timeBlockId = timeBlock.attr('id')
+    const userInput = timeBlock.find('.description').val()
 
     localStorage.setItem(timeBlockId, userInput)
   })
 
-  // places current hour tracker for scheduler
+  // coordinates timeblock
   let currentHour = dayjs().get('hour')
   $('.time-block').each(function () {
     let timeBlockId = +$(this).attr('id')
