@@ -16,19 +16,20 @@ $(function () {
     localStorage.setItem(timeBlockId, userInput)
   })
 
+  // places current hour tracker for scheduler
   let currentHour = dayjs().get('hour')
   $('.time-block').each(function () {
-    let timeBlockId = +(this).attr('id')
+    let timeBlockId = +$(this).attr('id')
 
     switch (true) {
       case timeBlockId < currentHour:
-        $(this).removeClass('present future').addClass('past');
+        $(this).addClass('past');
         break;
       case timeBlockId === currentHour:
-        $(this).removeClass('past future').addClass('present');
+        $(this).addClass('present');
         break;
       default:
-        $(this).removeClass('past present').addClass('future');
+        $(this).addClass('future');
         break;
     }
 
